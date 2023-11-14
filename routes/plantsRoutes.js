@@ -14,4 +14,7 @@ router.post("/", plantsController.create)
 //patch
 router.patch("/:id", plantsController.update)
 
+//delete
+router.delete("/:id", plantsController.destroy)
+
 module.exports = router

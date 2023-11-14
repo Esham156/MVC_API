@@ -60,7 +60,16 @@ class Plants {
         } catch (error) {
           throw new Error(err.message)
         }
-      }
+    }
+    async destroy(){
+        const plant = plantsData.find(plant => plant.id === this.id)
+        if (plant){
+            const plantIdx = plantsData.indexOf(plant)
+            plantsData.splice(plantIdx,1)
+        }else{
+            throw new Error("plant not found")
+        }
+    }
 }
 
 module.exports = Plants
