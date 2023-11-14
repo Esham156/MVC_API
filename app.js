@@ -2,7 +2,7 @@ const express = require("express")
 const cors = require("cors")
 const logger = require("morgan")
 
-const plants = require("./data/plants")
+const plantsRoutes = require("./routes/plantsRoutes")
 //start app
 const app = express()
 
@@ -18,14 +18,9 @@ app.get("/",(req,res)=>{
     res.send({message: "welcome to the plants encyclopedia"})
 })
 
-app.get("/plants",(req,res)=>{
-    res.send(plants)
-})
+app.use("/plants",plantsRoutes)
 
-app.get("/plants/:id",(req,res)=>{
-    idx = req.params.id - 1
-    res.send(plants[idx])
-})
+app.get("/plants/:id",plantsRoutes)
 //post
 
 //update
