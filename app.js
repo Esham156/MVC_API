@@ -11,16 +11,11 @@ app.use(express.json())
 app.use(cors())
 app.use(logger('dev'))
 
-//endpoints
-
-//get
 app.get("/",(req,res)=>{
     res.send({message: "welcome to the plants encyclopedia"})
 })
 
 app.use("/plants",plantsRoutes)
-
-//post
 
 //update
 

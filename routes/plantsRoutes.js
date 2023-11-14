@@ -3,8 +3,10 @@ const router = express.Router()
 
 const plantsController = require("../controller/plantsController")
 
-router.get("/",plantsController.index)
+router.get("/", plantsController.index)
 
-router.get("/:id",plantsController.show)
+router.get("/:id", plantsController.show)
+
+router.post("/", plantsController.create)
 
 module.exports = router

@@ -15,8 +15,18 @@ const show = async (req,res)=>{
     }
 }
 
-const create = async (req, res)=>{
-    const 
-}
+const create = async (req, res) => {
+    try {
+      console.log(req.body)
+      if (!req.body.name || !req.body.genus) {
+        throw new Error('You need the name and the genus of the plant')
+      }
+      const newPlant = await Plants.create(req.body)
+      res.status(201).send(newPlant)
+    } catch (err) {
+      res.status(422).send({ error: err.message })
+    }
+  
+  }
 
 module.exports = {index, show, create}
