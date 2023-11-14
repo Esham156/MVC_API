@@ -41,6 +41,25 @@ class Plants {
         } catch (error) {
           throw new Error(error)
         }
+    }
+    async update(data) {
+        try {
+          const plantData = plantsData.find(plant => plant.id === this.id)
+    
+          if (!plantData) {
+            throw new Error('plant not found')
+          }
+    
+          if (!data.name || !data.genus) {
+            throw new Error('name and/or genus missing')
+          }
+    
+          plantData.name = data.name
+          plantData.genus = data.genus
+          return new Plants(plantData)
+        } catch (error) {
+          throw new Error(err.message)
+        }
       }
 }
 

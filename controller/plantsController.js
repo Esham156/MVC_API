@@ -27,6 +27,17 @@ const create = async (req, res) => {
       res.status(422).send({ error: err.message })
     }
   
-  }
+}
 
-module.exports = {index, show, create}
+const update = async (req, res) => {
+    try {
+      const id  = req.params.id
+      const plantToUpdate = await Plants.findById(parseInt(id))
+  
+      const updatedPlant = await plantToUpdate.update(req.body)
+      res.status(200).send({ data: updatedPlant })
+    } catch (err) {
+      res.status(400).send({ error: err.message })
+    }
+  }
+module.exports = {index, show, create, update}

@@ -3,10 +3,15 @@ const router = express.Router()
 
 const plantsController = require("../controller/plantsController")
 
+//get
 router.get("/", plantsController.index)
 
 router.get("/:id", plantsController.show)
 
+//post
 router.post("/", plantsController.create)
+
+//patch
+router.patch("/:id", plantsController.update)
 
 module.exports = router
