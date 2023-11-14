@@ -1,6 +1,7 @@
-const plants = require("../data/plants")
+const Plants = require("../models/Plants")
 
-const index = (req,res)=>{
+const index = async (req,res)=>{
+    const plants = await Plants.getAll()
     res.send(plants)
 }
 
