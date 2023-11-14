@@ -5,9 +5,6 @@ const plantsController = require("../controller/plantsController")
 
 router.get("/",plantsController.index)
 
-router.get("/plants/:id",(req,res)=>{
-    idx = req.params.id - 1
-    res.send(plants[idx])
-})
+router.get("/:id",plantsController.show)
 
 module.exports = router

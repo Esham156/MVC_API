@@ -18,6 +18,14 @@ class Plants {
 
         }
     }
+    static async findById(id){
+        try {
+            const plant = plantsData.find(plant => plant.id === id)
+            return new Plants(plant)
+        } catch (error) {
+            throw new error("plant not found")
+        }
+    }
 }
 
 module.exports = Plants

@@ -20,7 +20,6 @@ app.get("/",(req,res)=>{
 
 app.use("/plants",plantsRoutes)
 
-app.get("/plants/:id",plantsRoutes)
 //post
 
 //update
